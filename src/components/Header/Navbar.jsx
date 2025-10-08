@@ -4,12 +4,12 @@ import { FaGithub } from "react-icons/fa";
 import { Link, NavLink } from 'react-router';
 const Navbar = () => {
     const links = <>
-    <NavLink><span className='px-3 font-semibold'>Home</span></NavLink>
-    <NavLink><span className='px-3 font-semibold'>Apps</span></NavLink>
-    <NavLink><span className='px-3 font-semibold'>Installation</span></NavLink>
+    <NavLink to='/'><span className='px-3 font-semibold hover:font-bold'>Home</span></NavLink>
+    <NavLink to='/AllApp'><span className='px-3 font-semibold hover:font-bold'>Apps</span></NavLink>
+    <NavLink><span className='px-3 font-semibold hover:font-bold'>Installation</span></NavLink>
     </>
     return (
-        <div className="navbar bg-base-100 shadow-sm">
+        <div className="navbar bg-base-100 shadow-sm px-3">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -21,10 +21,12 @@ const Navbar = () => {
                        {links}
                     </ul>
                 </div>
-                <div className='flex justify-center items-center'>
-                    <figure><img className='h-8 w-8' src={navlogo} alt="" /></figure>
-                    <a className="text-purple-500 btn-ghost text-2xl font-bold"> Hero.IO</a>
-                </div>
+                <Link to='/'>
+                   <div className='flex justify-center items-center'>
+                       <figure><img className='h-8 w-8' src={navlogo} alt="" /></figure>
+                       <a className="text-purple-500 btn-ghost text-2xl md:text-3xl font-bold"> Hero.IO</a>
+                   </div>
+                </Link>
                 
             </div>
             <div className="navbar-center hidden lg:flex">

@@ -29,7 +29,7 @@ const Footer = () => {
                     </div>
                 </nav>
             </div>
-            <hr className='p-0.5 w-4/5 mx-auto bg-gray-600'/>
+            <hr className='p-0.5 w-10/12 mx-auto bg-gray-600'/>
             <p className='text-center text-gray-200 py-4 px-3'>Copyright © 2025 - All right reserved</p>
         </footer>
     );
