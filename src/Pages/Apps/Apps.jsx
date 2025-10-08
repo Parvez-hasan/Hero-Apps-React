@@ -4,7 +4,7 @@ import AppCart from '../AppCart/AppCart';
 import { Link } from 'react-router';
 
 const Apps = () => {
-    const {allApps, loading, error} = useApps();
+    const {allApps} = useApps();
    // console.log(allApps);
    const sixApps = allApps.slice(0,8)
     

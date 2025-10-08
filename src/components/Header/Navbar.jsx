@@ -21,29 +21,28 @@ const Navbar = () => {
                        {links}
                     </ul>
                 </div>
-                <Link to='/'>
-                   <div className='flex justify-center items-center'>
-                       <figure><img className='h-8 w-8' src={navlogo} alt="" /></figure>
-                       <a className="text-purple-500 btn-ghost text-2xl md:text-3xl font-bold"> Hero.IO</a>
-                   </div>
+                <Link to='/' className='flex justify-center items-center'>
+                
+                          <figure><img className='h-8 w-8' src={navlogo} alt="" /></figure>
+                          <a className=" text-purple-500 btn-ghost text-2xl md:text-3xl font-bold"> Hero.IO</a>
+    
                 </Link>
                 
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    {links}
-                   
+                    {links}                 
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link><button className='bg-gradient-to-br from-[#632EE3] to-[#9F62F2] rounded-sm py-2 px-4'>
-                    
-                   <div className='flex justify-center items-center gap-2'>
-                     <FaGithub className='text-white'></FaGithub>
-                     <span className='text-white font-stretch-50%'>Contribute</span>
-                   </div>
-                
-                </button></Link> 
+
+                <a className='bg-gradient-to-br from-[#632EE3] to-[#9F62F2] rounded-sm py-2 px-4' href='https://github.com/Parvez-hasan' target='_blank'>
+                     <div className='flex justify-center items-center gap-2'>
+                         <FaGithub className='text-white'></FaGithub>
+                         <span className='text-white font-stretch-50%'>Contribute</span>
+                      </div>
+               </a>
+
             </div>
         </div>
     );

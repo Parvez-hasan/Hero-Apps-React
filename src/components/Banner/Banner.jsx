@@ -12,24 +12,24 @@ const Banner = () => {
 
             <div className='px-4 md:px-8 py-8'>
                 <h1 className='text-3xl md:text-5xl font-bold text-center w-2/5 mx-auto'>We Build <br /><span className='text-purple-600'>Productive</span> Apps</h1>
-                <p className='text-center mx-auto text-gray-600 py-2 px-5 md:px-8 lg:px-10'>At HERO.IO, we craft innovative apps designed to make everyday life simpler, smarter, and more exciting. <br /> Our goal is to turn your ideas into digital experiences that truly make an impact.</p>
+                <p className='text-center mx-auto text-gray-600 py-3 px-5 md:px-8 lg:px-10'>At HERO.IO, we craft innovative apps designed to make everyday life simpler, smarter, and more exciting. <br /> Our goal is to turn your ideas into digital experiences that truly make an impact.</p>
 
                 <div className='flex justify-center items-center gap-3 px-4 mt-4'>
                     <button className='btn'>
-                        <div className='flex items-center'>
+                        <a className='flex items-center' href='https://play.google.com/store/apps/' target='_blank'>
                             <figure>
                                 <img className='w-6 h-6 mr-1 ' src={googlePlayLogo} alt="" />
                             </figure>
                             <span>Google Play</span>
-                        </div>
+                        </a>
                     </button>
                     <button className='btn'>
-                        <div className='flex items-center'>
+                        <a className='flex items-center' href='https://www.apple.com/app-store/' target='_blank'>
                             <figure>
                                 <img className='w-6 h-6 mr-1' src={appStoreLogo} alt="" />
                             </figure>
                             <span>App Store</span>
-                        </div>
+                        </a>
                     </button>
                 </div>
             </div>
