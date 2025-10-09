@@ -16,7 +16,7 @@ useEffect(() => {
  axios('/appsData.json')
   .then(data => setAllApps(data.data))
 
-  .catch(err => console.log(err))
+  .catch(err => setError(err))
   .finally(() => setLoading(false))
 
 }, [])

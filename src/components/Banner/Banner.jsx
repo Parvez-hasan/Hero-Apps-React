@@ -33,11 +33,14 @@ const Banner = () => {
                     </button>
                 </div>
             </div>
-            <div className='flex justify-center items-center'>
+            {/* Hero Image section */}
+            <div className='flex justify-center items-center px-3'>
                 <figure>
                     <img src={heroImg} alt="" />
                 </figure>
             </div>
+
+            {/* States section */}
             <div className='h-auto w-auto bg-gradient-to-br from-[#632EE3] to-[#9F62F2] flex flex-col justify-center items-center px-3 py-4 md:py-7 lg:py-10 '>
                  <h1 className='text-white text-2xl md:text-3xl font-semibold text-center mx-auto px-3 py-4'>Trusted by Millions, Built for You</h1>
                       

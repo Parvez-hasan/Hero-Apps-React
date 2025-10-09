@@ -4,11 +4,14 @@ import AppCart from '../AppCart/AppCart';
 import { Link } from 'react-router';
 
 const Apps = () => {
-    const {allApps} = useApps();
+    const {allApps, loading} = useApps();
    // console.log(allApps);
-   const sixApps = allApps.slice(0,8)
+   const sixApps = allApps.slice(0,8) || {}
     
+   if(loading) return <p className='text-3xl py-6 text-center'>loading...</p>
+
     return (
+                // Top Apps section
         <div className=' bg-gray-100'>
             <h2 className='text-3xl font-semibold text-center px-3  py-5'>Trending Apps</h2>
             <p className='text-center text-gray-600 px-2 py-2'>Explore All Trending Apps on the Market developed by us</p>

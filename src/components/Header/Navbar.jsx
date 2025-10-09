@@ -6,7 +6,7 @@ const Navbar = () => {
     const links = <>
     <NavLink to='/'><span className='px-3 font-semibold hover:font-bold'>Home</span></NavLink>
     <NavLink to='/AllApp'><span className='px-3 font-semibold hover:font-bold'>Apps</span></NavLink>
-    <NavLink><span className='px-3 font-semibold hover:font-bold'>Installation</span></NavLink>
+    <NavLink to='/Intalled'><span className='px-3 font-semibold hover:font-bold'>Installation</span></NavLink>
     </>
     return (
         <div className="navbar bg-base-100 shadow-sm px-3">
