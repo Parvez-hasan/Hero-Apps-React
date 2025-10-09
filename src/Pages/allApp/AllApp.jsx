@@ -12,7 +12,7 @@ const AllApp = () => {
     console.log(search);
     const term = search.trim().toLocaleLowerCase()
     const searchedApps = term ? allApps.filter(allApp => 
-        allApp.name.toLocaleLowerCase().includes(term))
+        allApp.title.toLocaleLowerCase().includes(term))
         : allApps
   // console.log(searchedApps);
    
@@ -27,7 +27,7 @@ const AllApp = () => {
             <div className='flex justify-between py-4 px-3'>
 
                 <div>
-                    <h1 className=' text-xl md:text-2xl font-semibold'> <span>({allApps.length})</span> Apps found</h1>
+                    <h1 className=' text-xl md:text-2xl font-semibold'> <span>({searchedApps.length})</span> Apps found</h1>
                 </div>
 
                 <label className="input py-2">
@@ -52,7 +52,7 @@ const AllApp = () => {
 
                  <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4'>
                 {
-                allApps.map(SingleApp => <SingleAllApp key={SingleApp.id} SingleApp={SingleApp}></SingleAllApp>
+                searchedApps.map(SingleApp => <SingleAllApp key={SingleApp.id} SingleApp={SingleApp}></SingleAllApp>
                  )
                           
                 }

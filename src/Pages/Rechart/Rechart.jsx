@@ -17,7 +17,7 @@ const Rechart = () => {
                     <YAxis type='category' dataKey='name' scale={'band'}></YAxis>
                     <Tooltip></Tooltip>
                     <Legend></Legend>
-                    <Bar fill='orange' barSize={40} dataKey={'count'}></Bar>
+                    <Bar fill='orange' barSize={40} dataKey={'count'} radius={[6,6,6,6]}></Bar>
                    
 
                 </ComposedChart>
