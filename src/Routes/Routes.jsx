@@ -28,7 +28,7 @@ export const router = createBrowserRouter([
             Component: AllApp
         },
         {
-            path:"/appDetails/:id",
+            path:"appDetails/:id",
             Component: AppDetails
         }
     ]

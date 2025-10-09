@@ -1,34 +1,78 @@
 import React from 'react';
+
 import { useParams } from 'react-router';
 import useApps from '../../components/Hooks/useApps';
+import downIcon from '..//..//assets/icon-downloads.png'
+import starIcon from '..//..//assets/icon-ratings.png'
+import rainkIcon from '..//..//assets/icon-review.png'
+import Rechart from '../Rechart/Rechart';
+
 
 const AppDetails = () => {
     const { id } = useParams();
     const { allApps } = useApps();
 
-    const allApp = allApps.find(app => app.id === Number(id))
+    const appId = parseInt(id);
+    // console.log(allApps);
 
-    //  console.log(allApp);
-    const { image, title, companyName, description } = allApp || {}
+    const allApp = allApps.find(app => app.id === appId);
+
+   // console.log(allApp);
+    const { image, title, companyName, size, downloads,ratingAvg, reviews, description } = allApp || {};
+
 
     return (
-        <div>
-            <div className="card lg:card-side bg-base-100 shadow-sm">
-                <figure>
-                    <img
+        <div className='container mx-auto'>
+
+           {/* apps details section */}
+            <div className="card lg:card-side bg-base-100 shadow-sm gap-3 p-6">
+                <figure className='h-80 w-80 p-4'>
+                    <img 
                         src={image}
                         alt="Album" />
                 </figure>
                 <div className="card-body">
-                    <h2 className="card-title">New album is released!</h2>
-                    <p>Click the button to listen on Spotiwhy app.</p>
-                    <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Listen</button>
+                    <h3 className='text-[#001931] font-bold text-3xl'>{title}</h3>
+                    <p className='text-[#627382] text-md'>Developed by <span className='text-violet-600'>{companyName}</span></p>
+                    <hr className='text-gray-400 mt-3 w-full hidden md:block' />
+                    <button className="btn btn-accent text-white text-xs md:text-base mt-4 md:hidden">{size}</button>
+                    <div className='hidden md:block'>
+                        <div className='mt-3 flex gap-10'>
+                            <div className='space-y-1'>
+                               <img src={downIcon} alt="" />
+                                <p className='text-[#627382]'>Downloads</p>
+                                <p className='text-[#001931] text-2xl font-extrabold'>{downloads}</p>
+                            </div>
+                            <div className='space-y-1'>
+                               <img src={starIcon} alt="" />
+                                <p className='text-[#627382]'>Average Ratings</p>
+                                <p className='text-[#001931] text-2xl font-extrabold'>{ratingAvg}</p>
+                            </div>
+                            <div className='space-y-1'>
+                                <img src={rainkIcon} alt="" />
+                                <p className='text-[#627382]'>Total Reviews</p>
+                                <p className='text-[#001931] text-2xl font-extrabold'>{reviews}</p>
+                            </div>
+                        </div>
                     </div>
+                    <button className="btn btn-accent text-white mt-4  w-44 md:block">Install Now</button>
                 </div>
+                 
             </div>
+
+             {/* ranking section */}
+                <div>
+                 <h2>raingking section</h2>
+                 <Rechart></Rechart>
+                </div>
+                
+             {/* description section  */}
+
+               <div className='p-6'>
+                <h1><span className='font-semibold'>Description :</span> {description}</h1>
+               </div>
         </div>
-    );
+            );
 };
 
-export default AppDetails;
+            export default AppDetails;
