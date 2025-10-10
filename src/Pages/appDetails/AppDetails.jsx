@@ -21,6 +21,21 @@ const AppDetails = () => {
 
    if(loading) return <p className='text-3xl py-6 text-center'>loading...</p>
 
+  // install and localestrage added
+    const handleInstalled = () => {
+        const existingList = JSON.parse(localStorage.getItem('installed'))
+        let updeteList = []
+        if(existingList){
+            const noDuplicate = existingList.find(ap => ap.id === allApp.id)
+            if(noDuplicate) return alert('allredy added')
+            updeteList = [...existingList, allApp]
+        } else{ 
+            updeteList.push(allApp)
+        }
+        localStorage.setItem('installed', JSON.stringify(updeteList))
+    }
+
+
     return (
         <div className='container mx-auto'>
 
@@ -55,7 +70,7 @@ const AppDetails = () => {
                             </div>
                         </div>
                     </div>
-                    <button className="btn btn-accent text-white mt-4  w-auto md:block">Install Now</button>
+                    <button onClick={handleInstalled} className="btn btn-accent text-white mt-4  w-auto md:block">Install Now</button>
                 </div>
                  
             </div>
