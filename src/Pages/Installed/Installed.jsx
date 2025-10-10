@@ -4,13 +4,37 @@ import starIcon from '../../assets/icon-ratings.png';
 
 const Installed = () => {
   const [addApp, setAddApp] = useState([]);
+  const [appSelect, setAppSelect] = useState('none')
 
   useEffect(() => {
     const appList = JSON.parse(localStorage.getItem('installed'));
     if (appList) setAddApp(appList);
   }, []);
 
-  console.log(addApp);
+ // console.log(addApp);
+
+//  sort by downloads
+const sortApp = ( () => {
+ if (appSelect === 'ac'){
+  return [...addApp].sort((a, b) => a?.downloadsNum - b?.downloadsNum)
+ } else if (appSelect === 'dc'){
+  return [...addApp].sort((a, b) => b?.downloadsNum - a?.downloadsNum)
+ } else{ 
+  return addApp
+ }
+}) ()
+
+// renove apps 
+const handleRemove = id => {
+   const existingList = JSON.parse(localStorage.getItem('installed'))
+        let updeteList = existingList.filter(appList => appList.id !== id)
+       
+        // ui update
+        setAddApp(updeteList)
+        localStorage.setItem('installed', JSON.stringify(updeteList))
+}
+
+console.log(handleRemove);
 
   return (
     <div className="bg-gray-100 container mx-auto">
@@ -23,15 +47,21 @@ const Installed = () => {
         </div>
 
         <div className="flex justify-between gap-3 py-4 px-4">
-          <h3 className="font-medium md:font-bold">Apps Found: {addApp.length}</h3>
+          <h3 className="font-medium md:font-bold">Apps Found: {sortApp.length}</h3>
           <div>
-            <button className="btn">Sort By Size</button>
+             <label className='form control'>
+                <select className='select select-bordered' value={appSelect} onChange={e => setAppSelect(e.target.value)}>
+                  <option value="none">Sort By Size</option>
+                  <option value="ac">Low-High</option>
+                  <option value="dc">High-Low</option>
+                </select>
+             </label>
           </div>
         </div>
 
         {/* app list */}
         <div className="flex flex-col gap-4">
-          {addApp.map((appList) => (
+          {sortApp.map((appList) => (
             <div
               key={appList.id}
               className="flex flex-col space-y-4 md:flex-row justify-between items-center bg-white rounded p-4 shadow"
@@ -59,7 +89,7 @@ const Installed = () => {
                 </div>
               </div>
 
-              <button className="btn bg-green-500 text-white">Installed</button>
+              <button onClick={() => handleRemove(appList.id)} className="btn bg-green-500 text-white">Installed</button>
             </div>
           ))}
         </div>
